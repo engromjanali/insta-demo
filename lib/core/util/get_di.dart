@@ -21,6 +21,7 @@ Future<Map<String, Map<String, String>>> init() async {
   
   /// Controller
   Get.lazyPut<HomeController>(()=>HomeController(Get.find()));
+  
   Map<String, Map<String, String>> languages = {};
   // await AppTranslations.loadTranslations();
   for (LanguageModel languageModel in AppConstants.languages) {
