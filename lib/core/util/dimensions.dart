@@ -27,6 +27,7 @@ class Dimensions {
 
   static const double storyWisgetHeight = 100;  
   static const double storiesAvaterSize = 80;  
+  static const double commenterImageSize = 20;  
   static const double imageDefaultY = 40;
   static const double imageDefaultX = 40;
 

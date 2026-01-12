@@ -91,8 +91,8 @@ class PostWidget extends StatelessWidget {
                       payload: ImagePayloadModel(
                         isCircular: true,
                         isProfileImage: true,
-                        height: 20,
-                        width: 20,
+                        height: Dimensions.commenterImageSize,
+                        width: Dimensions.commenterImageSize,
                       ),
                     ),
                     GapX(value: Dimensions.paddingSizeLarge),
