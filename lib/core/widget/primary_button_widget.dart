@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get_utils/src/extensions/context_extensions.dart';
+import 'package:insta/core/util/dimensions.dart';
 
 class PrimaryButtonWidget extends StatefulWidget {
   final String? text;
@@ -95,13 +96,13 @@ class _PrimaryButtonWidgetState extends State<PrimaryButtonWidget>
 
   @override
   Widget build(BuildContext context) {
-    final height = widget.height ?? PTheme.buttonHeight;
+    final height = widget.height ?? Dimensions.buttonHeight;
     final width = widget.width ?? MediaQuery.of(context).size.width;
     final padding = widget.padding ?? EdgeInsets.zero;
 
     final effectiveGradient =
         widget.gradientColors ??
-        [context.theme.primary, context.button!.secondary];
+        [context.theme.colorScheme.primary, context.theme.colorScheme.secondary];
 
     final backgroundGradient = widget.border || widget.isDisabled
         ? null
@@ -114,8 +115,8 @@ class _PrimaryButtonWidgetState extends State<PrimaryButtonWidget>
           );
 
     final textColor = widget.border
-        ? (widget.color ?? context.theme.primary)
-        : widget.textColor ?? context.indicatorColor;
+        ? (widget.color ?? context.theme.colorScheme.primary)
+        : widget.textColor ?? context.theme.primaryColor;
 
     return Padding(
       padding: padding,
@@ -135,18 +136,18 @@ class _PrimaryButtonWidgetState extends State<PrimaryButtonWidget>
               borderRadius:
                   widget.borderRadius ??
                   BorderRadius.circular(
-                    widget.isLoading ? height / 2 : PTheme.buttonborderRadius,
+                    widget.isLoading ? height / 2 : Dimensions.buttonRadius,
                   ),
               gradient: backgroundGradient,
               color: widget.isDisabled
-                  ? (widget.color ?? context.theme.primary).withValues(
+                  ? (widget.color ?? context.theme.colorScheme.primary).withValues(
                       alpha: 0.5,
                     )
                   : widget.border || backgroundGradient != null
                   ? null
-                  : (widget.color ?? context.theme.primary),
+                  : (widget.color ?? context.theme.colorScheme.primary),
               border: widget.border
-                  ? Border.all(color: widget.color ?? context.theme.primary)
+                  ? Border.all(color: widget.color ?? context.theme.colorScheme.primary)
                   : null,
             ),
             child: Material(
@@ -161,7 +162,7 @@ class _PrimaryButtonWidgetState extends State<PrimaryButtonWidget>
                 borderRadius:
                     widget.borderRadius ??
                     BorderRadius.circular(
-                      widget.isLoading ? height / 2 : PTheme.buttonborderRadius,
+                      widget.isLoading ? height / 2 : Dimensions.radiusDefault,
                     ),
                 child: AnimatedOpacity(
                   duration: const Duration(milliseconds: 250),
@@ -176,12 +177,12 @@ class _PrimaryButtonWidgetState extends State<PrimaryButtonWidget>
                         duration: const Duration(milliseconds: 300),
                         child: widget.isLoading
                             ? SizedBox(
-                                height: 24.h,
-                                width: 24.w,
+                                height: 24,
+                                width: 24,
                                 child: CircularProgressIndicator(
-                                  strokeWidth: 2.5.w,
+                                  strokeWidth: 2.5,
                                   valueColor: AlwaysStoppedAnimation<Color>(
-                                    context.indicatorColor!,
+                                    context.theme.primaryColor!,
                                   ),
                                 ),
                               )
@@ -195,7 +196,7 @@ class _PrimaryButtonWidgetState extends State<PrimaryButtonWidget>
                                     if (widget.iconSVG != null)
                                       SvgPicture.asset(
                                         widget.iconSVG ?? "",
-                                        height: 24.h,
+                                        height: 24,
                                       ),
                                     if (widget.iconSVG != null &&
                                         widget.text != null)
@@ -206,7 +207,7 @@ class _PrimaryButtonWidgetState extends State<PrimaryButtonWidget>
                                         key: ValueKey(widget.text),
                                         style: TextStyle(
                                           color: textColor,
-                                          fontSize: 14.sp,
+                                          fontSize: 14,
                                           fontWeight: FontWeight.w500,
                                         ),
                                       ),

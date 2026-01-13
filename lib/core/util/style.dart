@@ -142,32 +142,3 @@ const productTabTextStyle = TextStyle(
 );
 
 const robotoBold = TextStyle(fontFamily: 'Roboto', fontWeight: FontWeight.w700);
-
-List<BoxShadow>? searchBoxShadow = [
-  BoxShadow(
-    offset: Offset(0, 4),
-    color: Colors.black.withValues(alpha: 0.05),
-    blurRadius: 14,
-    spreadRadius: 0,
-  ),
-];
-
-List<BoxShadow> cardShadow = [
-  const BoxShadow(
-    offset: Offset(0, 2),
-    spreadRadius: 2,
-    blurRadius: 2,
-    color: Color(0x20A8A8EA),
-  ),
-];
-
-List<BoxShadow>? lightShadow = Get.isDarkMode
-    ? [const BoxShadow()]
-    : [
-        const BoxShadow(
-          offset: Offset(0, 1),
-          blurRadius: 3,
-          spreadRadius: 1,
-          color: Color(0x20D6D8E6),
-        ),
-      ];

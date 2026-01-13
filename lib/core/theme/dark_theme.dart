@@ -18,6 +18,6 @@ ThemeData dark = ThemeData(
     secondary: Color(0xffD91A46),
     error: Color(0XFFFF5555),
     inversePrimary: Color(0XFF00AA6D),
-    primary: Color(0xffFBAA47),
+    primary: Color(0xff3797EF),
   ).copyWith(surface: const Color(0xff000000)),
 );

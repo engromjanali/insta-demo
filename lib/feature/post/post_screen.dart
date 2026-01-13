@@ -11,7 +11,7 @@ class _PostScreenState extends State<PostScreen> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(child: Text('Post'),),
+      body: Center(child: Text('Post Now'),),
     );
   }
 }

@@ -3,7 +3,7 @@ import 'package:insta/core/util/asset_icons.dart';
 import 'package:insta/feature/explore/explore_screen.dart';
 import 'package:insta/feature/home/screens/home_screen.dart';
 import 'package:insta/feature/post/post_screen.dart';
-import 'package:insta/feature/profile/profile_screen.dart';
+import 'package:insta/feature/profile/screens/profile_screen.dart';
 import 'package:insta/feature/reels/reels_screen.dart';
 
 class NavItemModel {

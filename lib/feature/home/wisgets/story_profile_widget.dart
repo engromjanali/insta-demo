@@ -39,6 +39,7 @@ class StoryProfileWidget extends StatelessWidget {
                   size: Dimensions.storiesAvaterSize,
                 ),
                 const GapY(value: 6),
+
                 SizedBox(
                   width: Dimensions.storiesAvaterSize,
                   child: Text(
@@ -60,7 +61,6 @@ class StoryProfileWidget extends StatelessWidget {
     );
   }
 }
-
 
 
 class StoryAvatarWidget extends StatelessWidget {

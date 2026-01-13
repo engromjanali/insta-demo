@@ -16,9 +16,9 @@ ThemeData light = ThemeData(
   extensions: <ThemeExtension<CustomThemeColors>>[CustomThemeColors.light()],
   
   colorScheme: const ColorScheme.light(
-    primary: Color(0XFF1455AC),
-    secondary: Color(0XFFF58300),
+    secondary: Color(0xffD91A46),
     error: Color(0XFFFF5555),
     inversePrimary: Color(0XFF00AA6D),
+    primary: Color(0xff3797EF),
   ).copyWith(surface: const Color(0xffffffff)),
 );

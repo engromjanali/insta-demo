@@ -1,4 +1,3 @@
-
 class Dimensions {
   static const double fontSizeExtraSmall = 10.0;
   static const double fontSizeSmall = 12.0;
@@ -25,9 +24,12 @@ class Dimensions {
 
   static const double webMaxWidth = 1200;
 
-  static const double storyWisgetHeight = 100;  
-  static const double storiesAvaterSize = 80;  
-  static const double commenterImageSize = 20;  
+  static const double storyWisgetHeight = 100;
+  static const double storiesAvaterSize = 80;
+  static const double commenterImageSize = 20;
   static const double imageDefaultY = 40;
   static const double imageDefaultX = 40;
+
+  static const double buttonHeight = 50;
+  static const double buttonRadius = 50;
 }

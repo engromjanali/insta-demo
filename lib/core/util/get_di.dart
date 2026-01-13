@@ -1,6 +1,5 @@
 
 import 'dart:convert';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -10,17 +9,21 @@ import 'package:insta/core/model/language_model.dart';
 import 'package:insta/feature/home/controller/home_controller.dart';
 import 'package:insta/feature/home/domain/repository/home_repository.dart';
 import 'package:insta/feature/home/domain/repository/home_repository_impl.dart';
+import 'package:insta/feature/profile/controller/profile_controller.dart';
+import 'package:insta/feature/profile/domain/repository/home_repository.dart';
+import 'package:insta/feature/profile/domain/repository/home_repository_impl.dart';
 
 Future<Map<String, Map<String, String>>> init() async {
-
 
   /// datasource
 
   /// Repository
   Get.lazyPut<HomeRepository>(()=>HomeRepositoryImpl());
+  Get.lazyPut<ProfileRepository>(()=>ProfileRepositoryImpl());
   
   /// Controller
   Get.lazyPut<HomeController>(()=>HomeController(Get.find()));
+  Get.lazyPut<ProfileController>(()=>ProfileController(Get.find()));
   
   Map<String, Map<String, String>> languages = {};
   // await AppTranslations.loadTranslations();

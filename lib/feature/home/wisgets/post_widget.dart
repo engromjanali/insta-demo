@@ -43,7 +43,8 @@ class PostWidget extends StatelessWidget {
                       style: interBold.copyWith(
                         fontSize: Dimensions.fontSizeSmall,
                       ),
-                    ).paddingOnly(bottom: 2),
+                    ),
+                    GapY(value: 2),
                     Text(
                       list[index].subtitle,
                       overflow: TextOverflow.ellipsis,
@@ -59,80 +60,87 @@ class PostWidget extends StatelessWidget {
                   icon: Icon(Icons.more_horiz_sharp),
                 ),
               ],
-            ).paddingSymmetric(horizontal: Dimensions.paddingSizeLarge),
-            ImageWidget(
-              list[index].image,
-              payload: ImagePayloadModel(
-                isCircular: true,
-                isProfileImage: true,
-                width: double.infinity,
+            ),
+            GapY(value: Dimensions.paddingSizeLarge),
+            
+            Expanded(
+              child: ImageWidget(
+                list[index].image,
+                payload: ImagePayloadModel(
+                  width: double.infinity,
+                  fit: BoxFit.fill,
+                  height: double.infinity,
+                ),
               ),
-            ).expd(),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  spacing: Dimensions.paddingSizeLarge,
-                  children: [
-                    IconWidget(path: AssetIcons.reels),
-                    IconWidget(path: AssetIcons.comment),
-                    IconWidget(path: AssetIcons.share),
-                    Spacer(),
-                    Spacer(),
-                    IconWidget(path: AssetIcons.saved),
-                  ],
-                ),
-                GapY(value: Dimensions.paddingSizeDefault),
-
-                Row(
-                  children: [
-                    ImageWidget(
-                      AppConstants.profile,
-                      payload: ImagePayloadModel(
-                        isCircular: true,
-                        isProfileImage: true,
-                        height: Dimensions.commenterImageSize,
-                        width: Dimensions.commenterImageSize,
-                      ),
-                    ),
-                    GapX(value: Dimensions.paddingSizeLarge),
-
-                    Text(
-                      "Liked by Siam And 23234 others",
-                      style: interRegular.copyWith(
-                        fontSize: Dimensions.fontSizeExtraSmall,
-                        color: context.theme.primaryColor,
-                      ),
-                    ),
-                  ],
-                ),
-                GapY(value: Dimensions.paddingSizeSmall),
-
-                RichText(
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  text: TextSpan(
+            ),
+            Padding(
+              padding: const EdgeInsets.all(Dimensions.paddingSizeSmall),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    spacing: Dimensions.paddingSizeLarge,
                     children: [
-                      TextSpan(
-                        text: list[index].subtitle,
-                        style: interBold.copyWith(
-                          fontSize: Dimensions.fontSizeExtraSmall,
-                          color: context.theme.primaryColor,
+                      IconWidget(path: AssetIcons.reels),
+                      IconWidget(path: AssetIcons.comment),
+                      IconWidget(path: AssetIcons.share),
+                      Spacer(),
+                      Spacer(),
+                      IconWidget(path: AssetIcons.saved),
+                    ],
+                  ),
+                  GapY(value: Dimensions.paddingSizeDefault),
+              
+                  Row(
+                    children: [
+                      ImageWidget(
+                        AppConstants.profile,
+                        payload: ImagePayloadModel(
+                          isCircular: true,
+                          isProfileImage: true,
+                          height: Dimensions.commenterImageSize,
+                          width: Dimensions.commenterImageSize,
                         ),
                       ),
-                      TextSpan(
-                        text: list[index].lastComment,
+                      GapX(value: Dimensions.paddingSizeLarge),
+              
+                      Text(
+                        "Liked by Siam And 23234 others",
                         style: interRegular.copyWith(
                           fontSize: Dimensions.fontSizeExtraSmall,
-                          fontWeight: FontWeight.normal,
                           color: context.theme.primaryColor,
                         ),
                       ),
                     ],
                   ),
-                ),
-              ],
-            ).paddingSymmetric(horizontal: Dimensions.paddingSizeLarge),
+                  GapY(value: Dimensions.paddingSizeSmall),
+              
+                  RichText(
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: list[index].subtitle,
+                          style: interBold.copyWith(
+                            fontSize: Dimensions.fontSizeExtraSmall,
+                            color: context.theme.primaryColor,
+                          ),
+                        ),
+                        TextSpan(
+                          text: list[index].lastComment,
+                          style: interRegular.copyWith(
+                            fontSize: Dimensions.fontSizeExtraSmall,
+                            fontWeight: FontWeight.normal,
+                            color: context.theme.primaryColor,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ).paddingOnly(bottom: Dimensions.paddingSizeExtraLarge),
